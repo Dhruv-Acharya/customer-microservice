@@ -1,30 +1,10 @@
-package com.lelo.customer.customermicroservice.entity;
+package com.lelo.customermicroservice.dto;
 
+public class CustomerDTO {
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
-@Entity
-@Table(name = Customer.TABLE_NAME)
-public class Customer {
-
-    public static final String TABLE_NAME = "Customer";
-    private static final String ID_COLUMN = "ID";
-
-
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @Column(name = Customer.ID_COLUMN)
     private String customerId;
-    @NotNull
     private String name;
-    @NotNull
     private String password;
-    @NotNull
-    @Column(unique = true)
     private String email;
     private String phone;
 
@@ -72,7 +52,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "CustomerDTO{" +
                 "customerId='" + customerId + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +

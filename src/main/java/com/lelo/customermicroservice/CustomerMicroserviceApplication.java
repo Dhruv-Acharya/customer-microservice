@@ -1,4 +1,4 @@
-package com.lelo.customer.customermicroservice;
+package com.lelo.customermicroservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

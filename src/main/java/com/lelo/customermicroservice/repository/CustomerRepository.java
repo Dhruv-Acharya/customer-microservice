@@ -1,8 +1,7 @@
-package com.lelo.customer.customermicroservice.repository;
+package com.lelo.customermicroservice.repository;
 
 
-import com.lelo.customer.customermicroservice.entity.Customer;
-import org.springframework.data.jpa.repository.Query;
+import com.lelo.customermicroservice.entity.Customer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

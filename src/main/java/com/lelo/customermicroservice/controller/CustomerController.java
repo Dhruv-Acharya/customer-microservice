@@ -1,9 +1,9 @@
-package com.lelo.customer.customermicroservice.controller;
+package com.lelo.customermicroservice.controller;
 
 
-import com.lelo.customer.customermicroservice.dto.CustomerDTO;
-import com.lelo.customer.customermicroservice.entity.Customer;
-import com.lelo.customer.customermicroservice.service.CustomerServiceImpl;
+import com.lelo.customermicroservice.dto.CustomerDTO;
+import com.lelo.customermicroservice.entity.Customer;
+import com.lelo.customermicroservice.service.CustomerServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

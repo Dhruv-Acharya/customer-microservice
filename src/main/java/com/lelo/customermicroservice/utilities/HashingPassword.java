@@ -1,4 +1,4 @@
-package com.lelo.customer.customermicroservice.utilities;
+package com.lelo.customermicroservice.utilities;
 
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;

@@ -1,4 +1,4 @@
-package com.lelo.customer.customermicroservice;
+package com.lelo.customermicroservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

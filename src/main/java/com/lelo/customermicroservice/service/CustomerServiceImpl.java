@@ -1,8 +1,8 @@
-package com.lelo.customer.customermicroservice.service;
+package com.lelo.customermicroservice.service;
 
-import com.lelo.customer.customermicroservice.entity.Customer;
-import com.lelo.customer.customermicroservice.repository.CustomerRepository;
-import com.lelo.customer.customermicroservice.utilities.HashingPassword;
+import com.lelo.customermicroservice.entity.Customer;
+import com.lelo.customermicroservice.repository.CustomerRepository;
+import com.lelo.customermicroservice.utilities.HashingPassword;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

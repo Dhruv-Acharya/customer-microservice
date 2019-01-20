@@ -1,6 +1,6 @@
-package com.lelo.customer.customermicroservice.service;
+package com.lelo.customermicroservice.service;
 
-import com.lelo.customer.customermicroservice.entity.Customer;
+import com.lelo.customermicroservice.entity.Customer;
 
 public interface CustomerService {
 
