@@ -27,7 +27,9 @@ public class CustomerController {
         return new ResponseEntity<String>("Success",HttpStatus.CREATED);
     }
     @RequestMapping(value="/login", method=RequestMethod.POST)
-    public ResponseEntity<CustomerResponseDTO> loginCustomer(@RequestParam String email, String password){
+    public ResponseEntity<CustomerResponseDTO> loginCustomer(CustomerDTO customerDTO){
+        String email = customerDTO.getEmail();
+        String password = customerDTO.getPassword();
         return new ResponseEntity<CustomerResponseDTO>(customerService.login(email, password),HttpStatus.OK);
     }
 
