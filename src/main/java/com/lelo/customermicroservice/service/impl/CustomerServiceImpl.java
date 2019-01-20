@@ -1,7 +1,9 @@
-package com.lelo.customermicroservice.service;
+package com.lelo.customermicroservice.service.impl;
 
+import com.lelo.customermicroservice.dto.CustomerResponseDTO;
 import com.lelo.customermicroservice.entity.Customer;
 import com.lelo.customermicroservice.repository.CustomerRepository;
+import com.lelo.customermicroservice.service.CustomerService;
 import com.lelo.customermicroservice.utilities.HashingPassword;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,19 +20,23 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     @Transactional(readOnly = false)
     public Customer add(Customer customer) {
-        String password=hashingPassword.encryptThisString(customer.getPassword());
+        String password=hashingPassword.encrypt(customer.getPassword());
         customer.setPassword(password);
         return customerRepository.save(customer);
 
     }
 
     @Override
-    public String login(String email, String password) {
-        Customer pass=customerRepository.findByEmail(email);
-        if(pass.getPassword().compareTo(hashingPassword.encryptThisString(password))==0)
-            return "Success";
+    public CustomerResponseDTO login(String email, String password) {
+        Customer customer=customerRepository.findByEmail(email);
+        if(customer.getPassword().compareTo(hashingPassword.encrypt(password))==0){
+            CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO();
+            customerResponseDTO.setCustomerId(customer.getCustomerId());
+            customerResponseDTO.setName(customer.getName());
+            return customerResponseDTO;
+        }
         else
-            return "Failure";
+            return null;
 
     }
 }

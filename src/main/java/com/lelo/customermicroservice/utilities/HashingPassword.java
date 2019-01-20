@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.MessageDigest;
 
 public class HashingPassword {
-    public static String encryptThisString(String input)
+    public static String encrypt(String input)
     {
         try {
             // getInstance() method is called with algorithm SHA-1

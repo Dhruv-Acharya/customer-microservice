@@ -2,8 +2,9 @@ package com.lelo.customermicroservice.controller;
 
 
 import com.lelo.customermicroservice.dto.CustomerDTO;
+import com.lelo.customermicroservice.dto.CustomerResponseDTO;
 import com.lelo.customermicroservice.entity.Customer;
-import com.lelo.customermicroservice.service.CustomerServiceImpl;
+import com.lelo.customermicroservice.service.impl.CustomerServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,13 +24,11 @@ public class CustomerController {
         Customer customer=new Customer();
         BeanUtils.copyProperties(customerDTO,customer);
         Customer customerCreated=customerService.add(customer);
-        String id=customerCreated.getCustomerId();
-        String name=customerCreated.getName();
-        return new ResponseEntity<String>(id,HttpStatus.CREATED);
+        return new ResponseEntity<String>("Success",HttpStatus.CREATED);
     }
     @RequestMapping(value="/login", method=RequestMethod.POST)
-    public String loginCustomer(@RequestParam String email, String password){
-        return customerService.login(email, password);
+    public ResponseEntity<CustomerResponseDTO> loginCustomer(@RequestParam String email, String password){
+        return new ResponseEntity<CustomerResponseDTO>(customerService.login(email, password),HttpStatus.OK);
     }
 
 }
