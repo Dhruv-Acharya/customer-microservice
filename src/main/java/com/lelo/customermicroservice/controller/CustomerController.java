@@ -33,4 +33,9 @@ public class CustomerController {
         return new ResponseEntity<CustomerResponseDTO>(customerService.login(email, password),HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/get/{customerId}", method = RequestMethod.GET)
+    public ResponseEntity<String> get(@PathVariable String customerId) {
+        return new ResponseEntity<String>(customerService.getEmail(customerId), HttpStatus.OK);
+    }
+
 }

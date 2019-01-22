@@ -10,6 +10,7 @@ public interface CustomerRepository extends CrudRepository<Customer, String> {
 
 //    @Query(value = "SELECT * FROM CUSTOMER WHERE EMAIL=?")
     Customer findByEmail(String email);
+    Customer findEmailByCustomerId(String customerId);
 
 
 }
