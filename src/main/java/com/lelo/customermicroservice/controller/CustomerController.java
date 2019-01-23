@@ -30,7 +30,11 @@ public class CustomerController {
     public ResponseEntity<CustomerResponseDTO> loginCustomer(@RequestBody CustomerDTO customerDTO){
         String email = customerDTO.getEmail();
         String password = customerDTO.getPassword();
-        return new ResponseEntity<CustomerResponseDTO>(customerService.login(email, password),HttpStatus.OK);
+        if(customerService.login(email, password) == null) {
+            return new ResponseEntity<>(new CustomerResponseDTO(),HttpStatus.UNAUTHORIZED);
+        } else {
+            return new ResponseEntity<CustomerResponseDTO>(customerService.login(email, password),HttpStatus.OK);
+        }
     }
 
     @RequestMapping(value = "/get/{customerId}", method = RequestMethod.GET)

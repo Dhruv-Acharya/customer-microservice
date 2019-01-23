@@ -29,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerResponseDTO login(String email, String password) {
         Customer customer=customerRepository.findByEmail(email);
-        if(customer.getPassword().compareTo(hashingPassword.encrypt(password))==0){
+        if(customer != null && customer.getPassword().compareTo(hashingPassword.encrypt(password))==0){
             CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO();
             customerResponseDTO.setCustomerId(customer.getCustomerId());
             customerResponseDTO.setName(customer.getName());
