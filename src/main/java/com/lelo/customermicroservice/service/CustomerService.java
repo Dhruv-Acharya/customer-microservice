@@ -11,4 +11,5 @@ public interface CustomerService {
     String getCustomerName(String customerId);
 
     String getEmail(String customerId);
+    Customer findOne(String customerId);
 }
