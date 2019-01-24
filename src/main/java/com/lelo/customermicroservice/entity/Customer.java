@@ -5,6 +5,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = Customer.TABLE_NAME)
@@ -20,12 +22,16 @@ public class Customer {
     @Column(name = Customer.ID_COLUMN)
     private String customerId;
     @NotNull
+    @Pattern(regexp = "^[A-Za-z]*$", message = "Name must be alphabetical")
     private String name;
     @NotNull
     private String password;
     @NotNull
+    @Pattern(regexp = ".+@.+\\.[a-z]+", message = "Invalid Email ID")
     @Column(unique = true)
     private String email;
+
+    @Pattern(regexp="(^$|[0-9]{10})", message = "Phone Number Invalid Format")
     private String phone;
 
 
