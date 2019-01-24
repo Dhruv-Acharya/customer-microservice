@@ -43,8 +43,9 @@ public class CustomerController {
         }
 
     @RequestMapping(value = "/get/{customerId}", method = RequestMethod.GET)
-    public ResponseEntity<String> get(@PathVariable String customerId) {
-        return new ResponseEntity<String>(customerService.getEmail(customerId), HttpStatus.OK);
+    public ResponseEntity<Customer> get(@PathVariable String customerId) {
+        return new ResponseEntity<Customer>(customerService.findOne(customerId), HttpStatus.OK);
     }
+
 
 }

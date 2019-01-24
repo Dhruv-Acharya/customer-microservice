@@ -1,6 +1,7 @@
 package com.lelo.customermicroservice.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -34,6 +35,17 @@ public class Customer {
     @Pattern(regexp="(^$|[0-9]{10})", message = "Phone Number Invalid Format")
     private String phone;
 
+    @JsonBackReference
+    @OneToMany(mappedBy = "customer")
+    private List<Address> addresses;
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
 
     public String getCustomerId() {
         return customerId;
