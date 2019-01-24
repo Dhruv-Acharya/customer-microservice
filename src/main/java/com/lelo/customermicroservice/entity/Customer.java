@@ -1,10 +1,12 @@
 package com.lelo.customermicroservice.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = Customer.TABLE_NAME)
@@ -28,6 +30,17 @@ public class Customer {
     private String email;
     private String phone;
 
+    @JsonBackReference
+    @OneToMany(mappedBy = "customer")
+    private List<Address> addresses;
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
 
     public String getCustomerId() {
         return customerId;
