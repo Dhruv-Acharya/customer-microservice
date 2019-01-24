@@ -37,6 +37,11 @@ public class CustomerController {
         }
     }
 
+    @RequestMapping(value = "/getCustomerName/{customerId}", method = RequestMethod.GET)
+        public ResponseEntity<String> getCustomerName(@PathVariable String customerId){
+            return new ResponseEntity<String>(customerService.getCustomerName(customerId), HttpStatus.OK);
+        }
+
     @RequestMapping(value = "/get/{customerId}", method = RequestMethod.GET)
     public ResponseEntity<String> get(@PathVariable String customerId) {
         return new ResponseEntity<String>(customerService.getEmail(customerId), HttpStatus.OK);

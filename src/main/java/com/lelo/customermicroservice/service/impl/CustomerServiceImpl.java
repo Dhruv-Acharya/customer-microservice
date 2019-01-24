@@ -41,6 +41,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public String getCustomerName(String customerId){
+        Customer customer = customerRepository.findByCustomerId(customerId);
+        return customer.getName();
+    }
+
+    @Override
     public String getEmail(String customerId) {
         Customer customer = customerRepository.findEmailByCustomerId(customerId);
         return customer.getEmail();
