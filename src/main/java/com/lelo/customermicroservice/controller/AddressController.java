@@ -39,7 +39,6 @@ public class AddressController {
     public ResponseEntity<List<Address>> getAllAddress(@PathVariable String customerId){
         Customer customer = customerService.findOne(customerId);
         return new ResponseEntity<>(addressService.getAllAddress(customer), HttpStatus.OK);
-
     }
 
     @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
