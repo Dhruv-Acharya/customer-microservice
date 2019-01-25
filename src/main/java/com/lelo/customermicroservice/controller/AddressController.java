@@ -28,6 +28,8 @@ public class AddressController {
     public ResponseEntity<String> addAddress(@RequestBody AddressDTO addressDTO){
         Address address=new Address();
         BeanUtils.copyProperties(addressDTO,address);
+        Customer customer = customerService.findOne(addressDTO.getCustomerId());
+        address.setCustomer(customer);
         Address addressCreated =addressService.add(address);
         return new ResponseEntity<String>("Success",HttpStatus.CREATED);
 
