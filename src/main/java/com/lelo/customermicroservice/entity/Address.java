@@ -1,5 +1,6 @@
 package com.lelo.customermicroservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -18,8 +19,9 @@ public class Address {
     private String addressId;
     private String address;
     @ManyToOne()
+    @JsonBackReference
     @JoinColumn(name = "customer_id")
-    private String customerId;
+    private Customer customer;
 
     public String getAddressId() {
         return addressId;
@@ -37,11 +39,11 @@ public class Address {
         this.address = address;
     }
 
-    public String getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

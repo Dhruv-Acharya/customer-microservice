@@ -7,6 +7,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = Customer.TABLE_NAME)
@@ -93,4 +94,22 @@ public class Customer {
                 ", phone='" + phone + '\'' +
                 '}';
     }
+//
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Customer customer = (Customer) o;
+//        return Objects.equals(customerId, customer.customerId) &&
+//                Objects.equals(name, customer.name) &&
+//                Objects.equals(password, customer.password) &&
+//                Objects.equals(email, customer.email) &&
+//                Objects.equals(phone, customer.phone) &&
+//                Objects.equals(addresses, customer.addresses);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return 0;
+//    }
 }
